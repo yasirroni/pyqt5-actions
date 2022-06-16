@@ -38,7 +38,7 @@ jobs:
       - name: Clone this repository
         uses: actions/checkout@v3
         
-      - name: Install pyqt4 pyqt5
+      - name: Install pyqt5
         run: |
           sudo apt-get install python3-setuptools python3-pyqt5
           python3 -m pip install matplotlib
@@ -86,3 +86,8 @@ jobs:
         run: |
           python3 test_matplotlib_pyqt5.py
 ```
+
+## What I learned
+
+1. Curent version of [matplotlib](https://pypi.org/project/matplotlib/) only support `Python>=3.7`.
+2. It seems that `python3-pyqt4` is no longer properly supported, thus `python3-pyqt5` is recommended.
