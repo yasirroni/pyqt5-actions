@@ -24,7 +24,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
-        
+
+      - name: Check Python version
+        run: |
+          python3 --version
+
       - name: Install pyqt5
         run: |
           sudo apt-get install python3-setuptools python3-pyqt5
