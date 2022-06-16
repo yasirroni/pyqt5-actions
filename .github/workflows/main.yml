@@ -1,4 +1,4 @@
-name: CI
+name: CI-base
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Clone this repository
         uses: actions/checkout@v3
         
-      - name: Install pyqt4 pyqt5
+      - name: Install pyqt5
         run: |
           sudo apt-get install python3-setuptools python3-pyqt5
           python3 -m pip install matplotlib
