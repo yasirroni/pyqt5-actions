@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clone this repository
+        uses: actions/checkout@v3
+        
       - name: Install pyqt4 pyqt5
         run: |
           sudo apt-get install python3-setuptools python3-pyqt5
