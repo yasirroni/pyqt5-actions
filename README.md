@@ -98,7 +98,7 @@ jobs:
 
 ## no implicit python3-pyqt5
 
-```
+```yml
 name: CI-python-matrix-no-PyQt5
 
 on:
