@@ -42,7 +42,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
-          python3 -m pip install matplotlib
+      - name: Install with cache
+        run: |
+          pip install -r requirements.txt
 
       - name: Run python script
         run: |
@@ -83,7 +85,49 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
-          python3 -m pip install matplotlib PyQt5
+      
+      - name: Install with cache
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run python script
+        run: |
+          python3 test_matplotlib_pyqt5.py
+```
+
+## no implicit python3-pyqt5
+
+```
+name: CI-python-matrix-no-PyQt5
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+
+    steps:
+      - name: Clone this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install with cache
+        run: |
+          pip install -r requirements.txt
 
       - name: Run python script
         run: |
