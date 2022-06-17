@@ -42,6 +42,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
+
       - name: Install with cache
         run: |
           pip install -r requirements.txt
@@ -138,3 +139,4 @@ jobs:
 
 1. Curent version of [matplotlib](https://pypi.org/project/matplotlib/) only support `Python>=3.7`.
 2. It seems that `python3-pyqt4` is no longer properly supported, thus `python3-pyqt5` is recommended.
+3. We can skip `sudo apt-get install python3-pyqt5` and sololy rely on directly instally PyQt5 from pip.
