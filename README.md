@@ -20,7 +20,7 @@ print(f'PyQt version:{PYQT_VERSION_STR}')
 ## base
 
 ```yml
-name: CI
+name: CI-base
 
 on:
   push:
@@ -37,12 +37,13 @@ jobs:
     steps:
       - name: Clone this repository
         uses: actions/checkout@v3
-        
+
       - name: Install pyqt5
         run: |
           sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
           python3 -m pip install matplotlib
+
       - name: Run python script
         run: |
           python3 test_matplotlib_pyqt5.py
