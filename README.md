@@ -40,6 +40,7 @@ jobs:
         
       - name: Install pyqt5
         run: |
+          sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
           python3 -m pip install matplotlib
       - name: Run python script
@@ -79,6 +80,7 @@ jobs:
 
       - name: Install pyqt5
         run: |
+          sudo apt-get update
           sudo apt-get install python3-setuptools python3-pyqt5
           python3 -m pip install matplotlib PyQt5
 
